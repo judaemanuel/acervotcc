@@ -2,6 +2,7 @@ package br.com.acervotcc.modelo;
 
 public class Autor {
 	
+	//comment
 	private int autId;
 	private String autNome;
 	private String autSobreNome;
