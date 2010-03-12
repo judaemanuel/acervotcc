@@ -1,7 +1,6 @@
 package br.com.acervotcc.teste;
 
 import java.sql.SQLException;
-import java.util.List;
 
 import br.com.acervotcc.dao.CursoDao;
 import br.com.acervotcc.modelo.Curso;
@@ -11,17 +10,17 @@ public class TesteCursoDao {
 	public static void main(String[] args) {
 
 		// Testa inserir
-		Curso c = new Curso();
-		c.setCurId(3);
-		c.setCurNome("Medicina");
-		
-		CursoDao dao;
-		try {
-			dao = new CursoDao();
-			dao.inserir(c);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//		Curso c = new Curso();
+//		c.setCurId(3);
+//		c.setCurNome("Medicina");
+//		
+//		CursoDao dao;
+//		try {
+//			dao = new CursoDao();
+//			dao.inserir(c);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 		
 		// Testa listar
 //		try {
@@ -52,6 +51,16 @@ public class TesteCursoDao {
 //			e.printStackTrace();
 //		}
 		
+		//Testa PesquisarNome
+		
+		try {
+			CursoDao dao = new CursoDao();
+			Curso curso = dao.pesquisarNome("Comp");
+			System.out.println(curso.getCurId() + " - " + curso.getCurNome());
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
 		
 		
 	}

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,6 +59,25 @@ public class CursoDao {
 		PreparedStatement pstm = connection.prepareStatement("select curid,curnome from curso where curid = ?");
 		pstm.setInt(1, curid);
 		
+		ResultSet rs = pstm.executeQuery();
+		if (rs.next()){
+			curso.setCurId(rs.getInt(1));
+			curso.setCurNome(rs.getString(2));
+		}
+		
+		rs.close();
+		pstm.close();
+		
+		return curso;
+		
+	}
+	
+	public Curso pesquisarNome(String nome) throws SQLException{
+		
+		Curso curso = new Curso();
+		PreparedStatement pstm = connection.prepareStatement("select curid,curnome from curso where curnome = ?");
+		pstm.setString(1, nome);
+
 		ResultSet rs = pstm.executeQuery();
 		if (rs.next()){
 			curso.setCurId(rs.getInt(1));
