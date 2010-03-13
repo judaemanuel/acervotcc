@@ -55,7 +55,7 @@ public class TesteCursoDao {
 		
 		try {
 			CursoDao dao = new CursoDao();
-			Curso curso = dao.pesquisarNome("Comp");
+			Curso curso = dao.pesquisarNome("Medicina");
 			System.out.println(curso.getCurId() + " - " + curso.getCurNome());
 		} catch (SQLException e) {
 			
