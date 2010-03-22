@@ -72,6 +72,8 @@ public class CursoDao {
 		
 	}
 	
+	
+	
 	public Curso pesquisarNome(String nome) throws SQLException{
 		
 		Curso curso = new Curso();
@@ -89,6 +91,33 @@ public class CursoDao {
 		
 		return curso;
 		
+	}
+	
+	public List<Curso> buscar(String s) throws SQLException{
+		
+		List<Curso> cursos = new ArrayList<Curso>();
+		String sql = "SELECT * FROM curso WHERE curnome like '"+ s +"%'";
+		Statement st = connection.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+		Curso curso;
+		
+		while(rs.next()){
+			curso = new Curso();
+			curso.setCurId(rs.getInt(1));
+			curso.setCurNome(rs.getString(2));
+			cursos.add(curso);
+		}
+		
+		return cursos;
+	}
+	
+	public void atualizar(Curso curso) throws SQLException{
+		
+		String sql = "UPDATE curso SET curnome = ? where curid = ?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, curso.getCurNome());
+		ps.setInt(2, curso.getCurId());
+		ps.execute();	
 	}
 	
 	public void remover(Curso curso) throws SQLException{

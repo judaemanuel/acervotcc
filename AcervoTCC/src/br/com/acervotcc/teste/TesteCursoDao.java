@@ -1,6 +1,7 @@
 package br.com.acervotcc.teste;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import br.com.acervotcc.dao.CursoDao;
 import br.com.acervotcc.modelo.Curso;
@@ -52,16 +53,38 @@ public class TesteCursoDao {
 //		}
 		
 		//Testa PesquisarNome
+//		try {
+//			CursoDao dao = new CursoDao();
+//			Curso curso = dao.pesquisarNome("Medicina");
+//			System.out.println(curso.getCurId() + " - " + curso.getCurNome());
+//		} catch (SQLException e) {
+//			
+//			e.printStackTrace();
+//		}
 		
-		try {
-			CursoDao dao = new CursoDao();
-			Curso curso = dao.pesquisarNome("Medicina");
-			System.out.println(curso.getCurId() + " - " + curso.getCurNome());
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}
+		// Testa atualizar
+//		try {
+//			CursoDao dao = new CursoDao();
+//			Curso curso = dao.pesquisar(1);
+//			curso.setCurNome("Direito");
+//			dao.atualizar(curso);
+//			
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
+		// Testa buscar
+//		try {
+//			CursoDao dao = new CursoDao();
+//			List<Curso> cursos = dao.buscar("Medi");
+//			for (Curso curso : cursos) {
+//				System.out.println(curso.getCurId() + " - " + curso.getCurNome());
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 	}
 }
