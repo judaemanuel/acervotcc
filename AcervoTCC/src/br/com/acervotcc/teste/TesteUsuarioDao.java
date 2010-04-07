@@ -70,9 +70,9 @@ public class TesteUsuarioDao {
 		
 		// Testa atualizar
 //		Usuario usr = new Usuario();
-//		usr.setUsrLogin("test5");
+//		usr.setUsrLogin("test7");
 //		usr.setUsrSenha("test5123");
-//		usr.setUsrNome("test5");
+//		usr.setUsrNome("test7");
 //		usr.setUsrSobreNome("de Jesus Aquino");
 //		usr.setUsrEmail("test5_@gmail.com");
 //		usr.setUsrId(4);

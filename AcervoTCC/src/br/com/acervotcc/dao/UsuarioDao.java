@@ -10,6 +10,7 @@ import java.util.List;
 
 import br.com.acervotcc.jdbc.ConnectionFactory;
 import br.com.acervotcc.modelo.Usuario;
+import br.com.acervotcc.seguranca.Criptografia;
 
 public class UsuarioDao {
 
@@ -24,7 +25,7 @@ public class UsuarioDao {
 		PreparedStatement pstm = connection.prepareStatement("insert into usuario(usrlogin, usrsenha, usrnome, usrsobrenome, usremail) values (?,?,?,?,?)");
 		
 		pstm.setString(1, usuario.getUsrLogin());
-		pstm.setString(2, usuario.getUsrSenha());
+		pstm.setString(2, Criptografia.criptografar(usuario.getUsrSenha()));
 		pstm.setString(3, usuario.getUsrNome());
 		pstm.setString(4, usuario.getUsrSobreNome());
 		pstm.setString(5, usuario.getUsrEmail());
@@ -135,7 +136,7 @@ public class UsuarioDao {
 		String sql = "UPDATE usuario SET usrlogin = ?, usrsenha = ?, usrnome = ?, usrsobrenome = ?, usremail = ? WHERE usrid = ?";
 		PreparedStatement pstm = connection.prepareStatement(sql);
 		pstm.setString(1, usuario.getUsrLogin());
-		pstm.setString(2, usuario.getUsrSenha());
+		pstm.setString(2, Criptografia.criptografar(usuario.getUsrSenha()));
 		pstm.setString(3, usuario.getUsrNome());
 		pstm.setString(4, usuario.getUsrSobreNome());
 		pstm.setString(5, usuario.getUsrEmail());
